@@ -1,4 +1,10 @@
 SELECT   
+
+
+--@End_Date =
+--@Start_Date =
+
+
 convert(decimal(20,2), convert(decimal(20,2), [Amount]) / 100) [Amount],
 [Charge Description], 
 [Charge Start Date], 
