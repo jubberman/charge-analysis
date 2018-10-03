@@ -1,2 +1,21 @@
-# charge-analysis
-SSRS report data set and report
+SELECT   
+convert(decimal(20,2), convert(decimal(20,2), [Amount]) / 100) [Amount],
+[Charge Description], 
+[Charge Start Date], 
+[Charge End Date],
+[Invoice No.],
+[Code 1], 
+[Code 2], 
+[Invoice Date], 
+[Quantity], 
+convert(decimal(20,2), convert(decimal(20,2), [VAT Amount]) / 100) [VAT Amount],  
+convert(decimal(20,2), convert(decimal(20,2), [VAT %]) / 100)[VAT %]
+
+FROM RS2000.V_RS2000Charges 
+WHERE [Invoiced] = 1
+
+and [Charge Start Date] < CAST(@End_Date AS DATETIME)
+and [Charge End Date] > CAST(@Start_Date AS DATETIME)
+
+
+order by [Invoice No.] asc
