@@ -18,5 +18,4 @@ and [Charge Start Date] < CAST(@End_Date AS DATETIME)
 and [Charge End Date] > CAST(@Start_Date AS DATETIME)
 
 
-order by [Invoice No.] asc
---test edit
+
