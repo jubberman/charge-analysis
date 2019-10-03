@@ -19,4 +19,4 @@ and Quantity <> 1
 and [Charge Description] <> 'Eat and drink'
 AND [Charge End Date] > '2019-07-31 12:00:00'
 AND [Charge Start Date] < '2020-08-01 12:00:00'
-order by [Charge Start Date] desc
+order by [Invoice No.] desc
