@@ -2,7 +2,13 @@ SELECT
 [Invoice No.],  
 convert(decimal(20,2), convert(decimal(20,2), [Amount]) / 100) [Amount],
 [Charge Description], 
-[Charge Start Date], 
+[Charge Start Date],
+                                               
+case when month([Charge Start Date]) > 7 then 
+'FY'+ substring(cast(year([Charge Start Date])as varchar(4)),3,4)+'/'+ substring(cast(year(dateadd(year,1,[Charge Start Date]))as varchar(4)),3,4)
+else 'FY'+ substring(cast(year(dateadd(year,-1,[Charge Start Date]))as varchar(4)),3,4)+'/'+substring(cast(year([Charge Start Date]) as varchar(4)),3,4)
+end as fiscal_year
+                                               
 [Charge End Date],
 [Code 1], 
 [Code 2], 
